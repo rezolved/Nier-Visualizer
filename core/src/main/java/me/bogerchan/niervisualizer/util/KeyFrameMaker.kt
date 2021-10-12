@@ -29,19 +29,23 @@ class KeyFrameMaker {
     }
 
     fun updateWaveData(waveData: ByteArray) {
-        System.arraycopy(waveData, 0, mDestWaveData, 0, mDestWaveData.size)
-        System.arraycopy(computedWaveData, 0, mPrevWaveData, 0, mPrevWaveData.size)
+        if(this::mDestWaveData.isInitialized) {
+            System.arraycopy(waveData, 0, mDestWaveData, 0, mDestWaveData.size)
+            System.arraycopy(computedWaveData, 0, mPrevWaveData, 0, mPrevWaveData.size)
 //        System.arraycopy(waveData, 0, computedWaveData, 0, computedWaveData.size)
 //        System.arraycopy(waveData, 0, mPrevWaveData, 0, mPrevWaveData.size)
-        mWaveAnimator.reset()
+            mWaveAnimator.reset()
+        }
     }
 
     fun updateFftData(fftData: ByteArray) {
-        System.arraycopy(fftData, 0, mDestFftData, 0, mDestFftData.size)
-        System.arraycopy(computedFftData, 0, mPrevFftData, 0, mPrevFftData.size)
+        if(this::mDestFftData.isInitialized) {
+            System.arraycopy(fftData, 0, mDestFftData, 0, mDestFftData.size)
+            System.arraycopy(computedFftData, 0, mPrevFftData, 0, mPrevFftData.size)
 //        System.arraycopy(fftData, 0, computedFftData, 0, computedFftData.size)
 //        System.arraycopy(fftData, 0, mPrevFftData, 0, mPrevFftData.size)
-        mFftAnimator.reset()
+            mFftAnimator.reset()
+        }
     }
 
     private fun ByteArray.originMap(transform: (Int, Byte) -> Byte) {
