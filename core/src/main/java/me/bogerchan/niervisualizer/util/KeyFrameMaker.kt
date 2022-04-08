@@ -51,9 +51,7 @@ class KeyFrameMaker {
         val fftFrac = mFftAnimator.computeCurrentValue()
         if (mWaveAnimator.hasValueUpdated) {
             computedWaveData.originMap { idx, _ ->
-                (((mDestWaveData[idx].toInt() and 0xFF) -
-                    (mPrevWaveData[idx].toInt() and 0xFF)) * waveFrac + (mPrevWaveData[idx].toInt() and 0xFF)
-                ).toByte()
+                (((mDestWaveData[idx].toInt() and 0xFF) - (mPrevWaveData[idx].toInt() and 0xFF)) * waveFrac + (mPrevWaveData[idx].toInt() and 0xFF)).toByte()
             }
         }
         if (mFftAnimator.hasValueUpdated) {
