@@ -49,14 +49,14 @@ class FpsHelper {
         if (mAwaitTime < 0) {
             mSkippedFrame = - mAwaitTime / mFrameGap + 1
             mAwaitTime += mSkippedFrame * mFrameGap
-            Log.d(NierConstants.TAG, "skipped frame: $mSkippedFrame, await: $mAwaitTime")
+//            Log.d(NierConstants.TAG, "skipped frame: $mSkippedFrame, await: $mAwaitTime")
         } else {
             mSkippedFrame = 0
         }
         mLastTrackTime = curTime
         mFps ++
         if (curTime - mLastSampleTime > 1000L) {
-            Log.d(NierConstants.TAG, "current fps: ${(1000.0 / (curTime - mLastSampleTime) * mFps).toInt()}")
+//            Log.d(NierConstants.TAG, "current fps: ${(1000.0 / (curTime - mLastSampleTime) * mFps).toInt()}")
             mFps = 0
             mLastSampleTime = curTime
         }
